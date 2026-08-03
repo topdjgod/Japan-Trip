@@ -130,6 +130,17 @@
     box-shadow:var(--shadow);
   }
   .checklist li b{color:var(--indigo);flex:0 0 auto;}
+  .checklist li .li-body{flex:1;min-width:0;}
+  .qr-grid{display:grid;gap:6px;margin:8px 0;}
+  .qr-item{
+    background:var(--indigo-soft);border-radius:8px;padding:7px 10px;font-size:13.6px;
+  }
+  .qr-tag{
+    display:block;font-size:11.5px;font-weight:700;color:var(--indigo);
+    text-transform:uppercase;letter-spacing:.03em;margin-bottom:2px;
+  }
+  .qr-note{margin:8px 0 0;font-size:13.6px;color:var(--ink);}
+  .qr-note b{color:var(--sun);}
 
   /* ---------- overview timeline ---------- */
   .ov-list{display:grid;gap:8px;margin-top:14px;}
@@ -336,7 +347,17 @@
   <section id="prep">
     <h2 class="sec-title">出發前必辦 3 件事</h2>
     <ul class="checklist">
-      <li><b>①</b> 全員在 Visit Japan Web 上註冊，每人會各自產生<b>2個不同的QR Code</b>：「入境審查QR」（每人都要有自己的，綁個人護照資料）與「稅關申告QR」（以同住家庭為單位申報1份即可，不是每人都要生成；10人如果分屬不同家庭，建議各家庭分開各生成1份，不要全部人擠成一份）。全部截圖存在手機相簿（現場網路不穩也能出示）。<b>使用時機：</b>抵達成田機場後，會依序在「入境審查」關口出示入境QR、取行李後在「稅關申告」關口出示申報QR，兩關都要用到，建議一下飛機就先切到QR畫面待命，10人建議提早排隊避免卡在同一關口太久</li>
+      <li>
+        <b>①</b>
+        <div class="li-body">
+          全員在 Visit Japan Web 上註冊，每人都會產生<b>2個不同的QR Code</b>，用途不一樣：
+          <div class="qr-grid">
+            <div class="qr-item"><span class="qr-tag">入境審查QR</span>每人都要有自己的一份，綁個人護照資料</div>
+            <div class="qr-item"><span class="qr-tag">稅關申告QR</span>以同住家庭為單位申報1份即可，不是每人都要生成；10人如分屬不同家庭，建議各家庭分開生成，不要全部人擠成一份</div>
+          </div>
+          <p class="qr-note"><b>使用時機：</b>抵達成田機場後，依序在「入境審查」關口出示入境QR、取行李後在「稅關申告」關口出示申報QR，兩關都要用到；建議一下飛機就先切到QR畫面待命，10人建議提早排隊避免卡在同一關口太久。全部截圖存在手機相簿，現場網路不穩也能出示。</p>
+        </div>
+      </li>
       <li><b>②</b> 租借日本上網 SIM 卡或 WiFi 機（10人建議至少 2 台 WiFi 機分兩組，互為備援）</li>
       <li><b>③</b> 換好日幣現金，建議每人至少 2–3 萬日圓（部分小店、神社香油錢、投幣設施只收現金）</li>
     </ul>
