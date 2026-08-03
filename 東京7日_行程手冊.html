@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>東京・橫濱 7日慢遊手冊</title>
+<style>
+  :root{
+    --paper:#FAF6EE;
+    --ink:#2B2E33;
+    --ink-soft:#5B5E63;
+    --indigo:#24456B;
+    --indigo-soft:#EBF1F7;
+    --sun:#C97325;
+    --sun-soft:#FBEEDD;
+    --rain:#2E7A88;
+    --rain-soft:#E7F2F2;
+    --warn:#AE4438;
+    --warn-soft:#F7E8E3;
+    --line:#E3DBC8;
+    --card:#FFFFFF;
+    --shadow: 0 1px 2px rgba(43,38,20,.06), 0 6px 16px rgba(43,38,20,.06);
+    --radius: 16px;
+    --day1:#2a78d6; --day2:#eb6834; --day3:#1baf7a; --day4:#eda100;
+    --day5:#e87ba4; --day6:#008300; --day7:#4a3aa7;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#1A1B1F;
+      --ink:#EDEAE2;
+      --ink-soft:#AFAB9F;
+      --indigo:#8FB4DE;
+      --indigo-soft:#1E2A38;
+      --sun:#E7A868;
+      --sun-soft:#2C2216;
+      --rain:#7FC3CE;
+      --rain-soft:#17262A;
+      --warn:#E2938A;
+      --warn-soft:#2E1E1B;
+      --line:#34363B;
+      --card:#212226;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+      --day1:#3987e5; --day2:#d95926; --day3:#199e70; --day4:#c98500;
+      --day5:#d55181; --day6:#008300; --day7:#9085e9;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1A1B1F; --ink:#EDEAE2; --ink-soft:#AFAB9F; --indigo:#8FB4DE; --indigo-soft:#1E2A38;
+    --sun:#E7A868; --sun-soft:#2C2216; --rain:#7FC3CE; --rain-soft:#17262A; --warn:#E2938A; --warn-soft:#2E1E1B;
+    --line:#34363B; --card:#212226; --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+    --day1:#3987e5; --day2:#d95926; --day3:#199e70; --day4:#c98500;
+    --day5:#d55181; --day6:#3fbf3f; --day7:#9085e9;
+  }
+  :root[data-theme="light"]{
+    --paper:#FAF6EE; --ink:#2B2E33; --ink-soft:#5B5E63; --indigo:#24456B; --indigo-soft:#EBF1F7;
+    --sun:#C97325; --sun-soft:#FBEEDD; --rain:#2E7A88; --rain-soft:#E7F2F2; --warn:#AE4438; --warn-soft:#F7E8E3;
+    --line:#E3DBC8; --card:#FFFFFF; --shadow: 0 1px 2px rgba(43,38,20,.06), 0 6px 16px rgba(43,38,20,.06);
+    --day1:#2a78d6; --day2:#eb6834; --day3:#1baf7a; --day4:#eda100;
+    --day5:#e87ba4; --day6:#008300; --day7:#4a3aa7;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",-apple-system,"Segoe UI",sans-serif;
+    line-height:1.6;
+    -webkit-text-size-adjust:100%;
+  }
+  h1,h2,h3,h4{
+    font-family:"Noto Serif TC","Songti TC","PMingLiU",Georgia,serif;
+    font-weight:700;
+    text-wrap:balance;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--indigo);}
+  .wrap{max-width:720px;margin:0 auto;padding:0 16px 64px;}
+
+  /* ---------- header ---------- */
+  .hero{padding:28px 16px 18px;border-bottom:1px solid var(--line);}
+  .hero .eyebrow{
+    font-size:12.5px;letter-spacing:.08em;color:var(--ink-soft);
+    text-transform:uppercase;margin-bottom:6px;
+  }
+  .hero h1{font-size:26px;line-height:1.3;}
+  .hero .sub{margin-top:8px;color:var(--ink-soft);font-size:14.5px;}
+  .hero .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .fact{
+    background:var(--indigo-soft);color:var(--indigo);border-radius:999px;
+    padding:5px 12px;font-size:12.5px;font-weight:600;white-space:nowrap;
+  }
+
+  /* ---------- sticky nav ---------- */
+  .navbar{
+    position:sticky;top:0;z-index:20;background:var(--paper);
+    border-bottom:1px solid var(--line);padding:10px 0;position:relative;
+  }
+  :root{--navh:64px;}
+  .navscroll{
+    display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;padding:0 20px 4px 16px;
+    scrollbar-width:none;
+  }
+  .navscroll::-webkit-scrollbar{display:none;}
+  .navbar::after{
+    content:'';position:absolute;top:0;right:0;bottom:0;width:32px;
+    background:linear-gradient(to right, transparent, var(--paper));pointer-events:none;
+  }
+  .navchip{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:7px 13px;text-decoration:none;white-space:nowrap;
+  }
+  .navchip.rain{color:var(--rain);border-color:var(--rain);}
+  .navchip.note{color:var(--warn);border-color:var(--warn);}
+
+  section{padding-top:26px;}
+  section[id]{scroll-margin-top:var(--navh);}
+  .sec-title{font-size:20px;margin-bottom:4px;}
+  .sec-desc{color:var(--ink-soft);font-size:14px;margin-top:6px;}
+
+  /* ---------- pre-trip checklist ---------- */
+  .checklist{
+    list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px;
+  }
+  .checklist li{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:10px 14px;font-size:14.5px;display:flex;gap:10px;align-items:flex-start;
+    box-shadow:var(--shadow);
+  }
+  .checklist li b{color:var(--indigo);flex:0 0 auto;}
+
+  /* ---------- overview timeline ---------- */
+  .ov-list{display:grid;gap:8px;margin-top:14px;}
+  .ov-item{
+    display:flex;gap:12px;align-items:center;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;padding:10px 12px;
+    text-decoration:none;color:var(--ink);box-shadow:var(--shadow);
+  }
+  .ov-day{
+    flex:0 0 44px;height:44px;border-radius:10px;background:var(--indigo);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:"Noto Serif TC",serif;font-weight:700;font-size:15px;
+  }
+  .ov-text{flex:1;min-width:0;}
+  .ov-text .d{font-size:12px;color:var(--ink-soft);}
+  .ov-text .t{font-size:14.5px;font-weight:700;}
+
+  /* ---------- day accordion ---------- */
+  details.day{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    margin-top:14px;box-shadow:var(--shadow);overflow:hidden;
+    scroll-margin-top:var(--navh);
+  }
+  details.day summary{
+    list-style:none;cursor:pointer;padding:16px;display:flex;gap:12px;align-items:center;
+  }
+  details.day summary::-webkit-details-marker{display:none;}
+  .sum-badge{
+    flex:0 0 46px;height:46px;border-radius:11px;background:var(--indigo);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;
+    font-weight:700;font-size:16px;
+  }
+  .sum-main{flex:1;min-width:0;}
+  .sum-main .date{font-size:12px;color:var(--ink-soft);}
+  .sum-main h3{font-size:17px;margin-top:2px;}
+  .sum-main .theme{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+  .chev{flex:0 0 auto;transition:transform .2s;color:var(--ink-soft);}
+  details.day[open] .chev{transform:rotate(180deg);}
+  .day-body{padding:0 16px 20px;border-top:1px solid var(--line);}
+  .day-logi{
+    display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px;
+  }
+  .logi-chip{
+    font-size:12px;background:var(--sun-soft);color:var(--sun);border-radius:8px;
+    padding:4px 9px;font-weight:600;
+  }
+
+  /* ---------- time-block ---------- */
+  .block{margin-top:20px;}
+  .block h4{
+    font-size:15px;display:flex;align-items:center;gap:8px;color:var(--indigo);
+    border-bottom:2px solid var(--indigo-soft);padding-bottom:6px;
+  }
+  .opt-label{
+    font-size:13px;font-weight:700;color:var(--sun);margin:14px 0 6px;
+  }
+
+  /* ---------- horizontally-scrollable table, time column pinned ---------- */
+  .tbl-wrap{
+    margin-top:8px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
+    border:1px solid var(--line);border-radius:10px;
+  }
+  table.plan{border-collapse:collapse;font-size:13.6px;}
+  table.plan caption{display:none;}
+  table.plan th,
+  table.plan td{padding:9px 10px;vertical-align:top;}
+  table.plan th:nth-child(1), table.plan td:nth-child(1){min-width:64px;}
+  table.plan th:nth-child(2), table.plan td:nth-child(2){min-width:150px;}
+  table.plan th:nth-child(3), table.plan td:nth-child(3){min-width:230px;}
+  table.plan th:nth-child(4), table.plan td:nth-child(4){min-width:100px;}
+  table.plan th:nth-child(5), table.plan td:nth-child(5){min-width:240px;}
+  table.plan thead th{
+    background:var(--indigo);color:#fff;text-align:left;font-weight:700;
+    padding:8px 10px;font-size:12px;letter-spacing:.02em;white-space:nowrap;
+  }
+  table.plan tbody tr{border-bottom:1px solid var(--line);}
+  table.plan td.time{
+    font-variant-numeric:tabular-nums;color:var(--ink-soft);white-space:nowrap;font-weight:700;
+  }
+  table.plan td.name{font-weight:700;}
+  /* pin the time column so it stays visible while the rest scrolls horizontally */
+  table.plan th:first-child, table.plan td:first-child{
+    position:sticky;left:0;z-index:1;box-shadow:2px 0 4px -2px rgba(0,0,0,.15);
+  }
+  table.plan th:first-child{background:var(--indigo);z-index:2;}
+  table.plan td:first-child{background:var(--card);}
+  table.plan tbody tr.gem td:first-child{box-shadow: inset 3px 0 0 var(--sun), 2px 0 4px -2px rgba(0,0,0,.15);}
+  table.plan tbody tr.caution td:first-child{box-shadow: inset 3px 0 0 var(--warn), 2px 0 4px -2px rgba(0,0,0,.15);}
+  table.plan td .tag{
+    display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;
+    padding:1px 6px;margin-left:6px;vertical-align:middle;white-space:nowrap;
+  }
+  table.plan td .tag.gemtag{background:var(--sun-soft);color:var(--sun);}
+  table.plan td .tag.book{background:var(--indigo-soft);color:var(--indigo);}
+  table.plan td .transit{color:var(--ink-soft);font-size:13px;}
+  table.plan td .transit ol{margin:4px 0 0;padding-left:18px;}
+  table.plan td .transit li{margin-bottom:3px;}
+
+  .swipe-hint{
+    display:flex;align-items:center;gap:6px;color:var(--ink-soft);font-size:12.5px;
+    margin:10px 0 -2px;
+  }
+
+  .note-box{
+    margin-top:14px;background:var(--sun-soft);border-radius:12px;padding:12px 14px;
+    font-size:13.6px;color:var(--ink);box-shadow: inset 3px 0 0 var(--sun);
+  }
+  .note-box b{color:var(--sun);}
+
+  /* ---------- rain section ---------- */
+  .rain-card{
+    background:var(--rain-soft);border:1px solid var(--rain);border-radius:var(--radius);
+    padding:16px;margin-top:14px;
+  }
+  .rain-card h3{color:var(--rain);font-size:17px;}
+  .rain-card .tbl-wrap{border-color:var(--rain);}
+  .rain-card .tbl-wrap table.plan thead th{background:var(--rain);}
+  .rain-card .tbl-wrap table.plan th:first-child{background:var(--rain);}
+  .rain-card .tbl-wrap table.plan td:first-child{background:var(--card);}
+
+  /* ---------- map ---------- */
+  .map-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px;margin-top:14px;box-shadow:var(--shadow);
+  }
+  .map-svg-wrap{margin-top:12px;border-radius:12px;overflow:hidden;background:var(--paper);border:1px solid var(--line);}
+  .map-svg-wrap svg{display:block;width:100%;height:auto;}
+  .map-water{fill:var(--rain-soft);}
+  .map-bay-label{fill:var(--ink-soft);font-size:11px;letter-spacing:.05em;}
+  .map-node text{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;}
+  .map-label{fill:var(--ink);font-size:12.5px;font-weight:700;}
+  .map-sublabel{fill:var(--ink-soft);font-size:10.5px;}
+  .map-daynum{fill:#fff;font-size:10px;font-weight:700;text-anchor:middle;dominant-baseline:central;}
+  .map-route{fill:none;stroke-width:2px;stroke-dasharray:5 4;opacity:.75;}
+  .map-hotel-icon circle{fill:var(--card);stroke:var(--indigo);stroke-width:2px;}
+  .map-hotel-icon text{fill:var(--indigo);font-size:12px;text-anchor:middle;dominant-baseline:central;}
+  .map-airport-icon circle{fill:var(--card);stroke:var(--ink-soft);stroke-width:2px;}
+  .map-airport-icon text{fill:var(--ink-soft);font-size:12px;text-anchor:middle;dominant-baseline:central;}
+  .day1{fill:var(--day1);stroke:var(--day1);} .day2{fill:var(--day2);stroke:var(--day2);}
+  .day3{fill:var(--day3);stroke:var(--day3);} .day4{fill:var(--day4);stroke:var(--day4);}
+  .day5{fill:var(--day5);stroke:var(--day5);} .day6{fill:var(--day6);stroke:var(--day6);}
+  .day7{fill:var(--day7);stroke:var(--day7);}
+  .map-dot{stroke:var(--card);stroke-width:2.5px;}
+  .map-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .map-legend-item{
+    display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink);
+    background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:5px 11px 5px 7px;
+  }
+  .map-legend-swatch{width:12px;height:12px;border-radius:50%;flex:0 0 auto;}
+
+  /* ---------- notes ---------- */
+  .notes-grid{display:grid;gap:10px;margin-top:14px;}
+  .notecard{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    box-shadow:var(--shadow);
+  }
+  .notecard h4{font-size:14.5px;color:var(--warn);display:flex;gap:8px;align-items:center;margin-bottom:4px;}
+  .notecard p{margin:0;font-size:13.6px;color:var(--ink);}
+  .notecard.highlight{border-color:var(--sun);}
+  .notecard.highlight h4{color:var(--sun);}
+
+  footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:12px;}
+
+  .toolbar{display:flex;justify-content:flex-end;gap:8px;margin:14px 0 0;}
+  .toolbtn{
+    font-size:12.5px;font-weight:600;border:1px solid var(--line);background:var(--card);
+    color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">東京・橫濱慢遊手冊</div>
+    <h1>10人の夏 — 東京・橫濱 7日輕旅行</h1>
+    <p class="sub">2026/8/18（二）～8/24（一）・10人同行（含長輩與孩童）・不趕路，慢慢看風景</p>
+    <div class="facts">
+      <span class="fact">✈ CI104 桃園→成田 / CI221 羽田→松山</span>
+      <span class="fact">🏨 橫濱三井花園 x2晚</span>
+      <span class="fact">🏨 東京灣潮見王子 x4晚</span>
+    </div>
+    <p class="swipe-hint">👉 每日表格欄位較多，「時間」欄會固定在左側，其餘欄位請左右滑動查看</p>
+  </div>
+
+  <div class="navbar">
+    <div class="navscroll">
+      <a class="navchip" href="#prep">出發前</a>
+      <a class="navchip" href="#day1">Day1</a>
+      <a class="navchip" href="#day2">Day2</a>
+      <a class="navchip" href="#day3">Day3</a>
+      <a class="navchip" href="#day4">Day4</a>
+      <a class="navchip" href="#day5">Day5</a>
+      <a class="navchip" href="#day6">Day6</a>
+      <a class="navchip" href="#day7">Day7</a>
+      <a class="navchip rain" href="#rain">☔ 雨天備案</a>
+      <a class="navchip note" href="#notes">⚠ 注意事項</a>
+      <a class="navchip" href="#map">🗺️ 旅遊地圖</a>
+    </div>
+  </div>
+
+  <!-- ============ 出發前 ============ -->
+  <section id="prep">
+    <h2 class="sec-title">出發前必辦 3 件事</h2>
+    <ul class="checklist">
+      <li><b>①</b> 全員在 Visit Japan Web 上註冊，每人會各自產生<b>2個不同的QR Code</b>：「入境審查QR」（每人都要有自己的，綁個人護照資料）與「稅關申告QR」（以同住家庭為單位申報1份即可，不是每人都要生成；10人如果分屬不同家庭，建議各家庭分開各生成1份，不要全部人擠成一份）。全部截圖存在手機相簿（現場網路不穩也能出示）。<b>使用時機：</b>抵達成田機場後，會依序在「入境審查」關口出示入境QR、取行李後在「稅關申告」關口出示申報QR，兩關都要用到，建議一下飛機就先切到QR畫面待命，10人建議提早排隊避免卡在同一關口太久</li>
+      <li><b>②</b> 租借日本上網 SIM 卡或 WiFi 機（10人建議至少 2 台 WiFi 機分兩組，互為備援）</li>
+      <li><b>③</b> 換好日幣現金，建議每人至少 2–3 萬日圓（部分小店、神社香油錢、投幣設施只收現金）</li>
+    </ul>
+    <div class="note-box"><b>提前預約提醒：</b>哈利波特影城（Day4）、teamLab Borderless 麻布台之丘（Day6）、Shibuya Sky（Day6）都是「指定時段電子票」，請於出發前 2–4 週上官網或 KKday／Klook 訂好，詳見文末〈特別注意事項〉。</div>
+  </section>
+
+  <!-- ============ 總覽 ============ -->
+  <section>
+    <h2 class="sec-title">7日總覽</h2>
+    <div class="ov-list">
+      <a class="ov-item" href="#day1"><div class="ov-day">1</div><div class="ov-text"><div class="d">8/18（二）</div><div class="t">台北 → 橫濱，柚子拉麵接風</div></div></a>
+      <a class="ov-item" href="#day2"><div class="ov-day">2</div><div class="ov-text"><div class="d">8/19（三）</div><div class="t">八景島海島樂園，Outlet 或 JOINUS 二選一</div></div></a>
+      <a class="ov-item" href="#day3"><div class="ov-day">3</div><div class="ov-text"><div class="d">8/20（四）</div><div class="t">港未來晨間散策 → 換宿潮見 → 皇居、丸之內夜景</div></div></a>
+      <a class="ov-item" href="#day4"><div class="ov-day">4</div><div class="ov-text"><div class="d">8/21（五）</div><div class="t">哈利波特影城 + 東京巨蛋城</div></div></a>
+      <a class="ov-item" href="#day5"><div class="ov-day">5</div><div class="ov-text"><div class="d">8/22（六）</div><div class="t">上野、阿美橫町 → 秋葉原或人形町 → 台場鋼彈</div></div></a>
+      <a class="ov-item" href="#day6"><div class="ov-day">6</div><div class="ov-text"><div class="d">8/23（日）</div><div class="t">春日部小新故鄉 或 澀谷／表參道／麻布台／六本木</div></div></a>
+      <a class="ov-item" href="#day7"><div class="ov-day">7</div><div class="ov-text"><div class="d">8/24（一）</div><div class="t">潮見悠閒早晨 → 羽田機場 → 台北</div></div></a>
+    </div>
+    <div class="toolbar">
+      <button class="toolbtn" onclick="document.querySelectorAll('details.day').forEach(d=>d.open=true)">展開全部</button>
+      <button class="toolbtn" onclick="document.querySelectorAll('details.day').forEach(d=>d.open=false)">收合全部</button>
+    </div>
+  </section>
+
+  <!-- ============ DAY 1 ============ -->
+  <section>
+  <details class="day" id="day1" open>
+    <summary>
+      <div class="sum-badge">1</div>
+      <div class="sum-main">
+        <div class="date">8/18（二）</div>
+        <h3>台北 → 橫濱</h3>
+        <div class="theme">飛行日，抵達後輕鬆吃拉麵、早點休息</div>
+      </div>
+      <div class="chev">⌄</div>
+    </summary>
+    <div class="day-body">
+      <div class="day-logi">
+        <span class="logi-chip">住宿：三井花園飯店橫濱港未來普米爾</span>
+        <span class="logi-chip">今日重點：安全抵達，不安排趕行程</span>
+      </div>
+
+      <div class="block"><h4>☀ 早：出發</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點/行程</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">08:15</td><td class="name" data-label="景點/行程">出發往桃園機場T2</td><td data-label="特色簡介">10人建議分乘2輛車或包1台9–13人座接駁車，行李多先預留裝車時間</td><td data-label="停留時間">約1小時車程</td><td data-label="交通建議"><div class="transit">出發前確認每人證件、Visit Japan Web QR 已截圖存好</div></td></tr>
+          <tr><td class="time" data-label="時間">12:15</td><td class="name" data-label="景點/行程">CI104 桃園 → 成田</td><td data-label="特色簡介">中華航空直飛，飛行時間約3.5小時</td><td data-label="停留時間">-</td><td data-label="交通建議"><div class="transit">建議提前2小時抵達櫃檯集合、託運行李，10人建議指派1人先集合排隊拿好登機證</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌆 晚：入境 → 移動橫濱 → 晚餐</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點/餐廳</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="caution"><td class="time" data-label="時間">16:35</td><td class="name" data-label="景點/餐廳">抵達 NRT 成田機場T2</td><td data-label="特色簡介">入境審查、海關申告、提行李</td><td data-label="停留時間">約40–50分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li><b>下飛機先把手機切到 Visit Japan Web QR 畫面：</b>第一關「入境審查」（負責審核入境資格的<b>入境審查官</b>，還不是海關），出示入境QR給審查官／閘機核對護照，過關後在行李轉盤取行李</li>
+            <li>取完行李走到出口前的最後一關「稅關申告」（這裡才是真正的<b>稅關／海關人員</b>），出示海關QR（同住家庭出示1份即可，不用每人各出示一份；也可用機上發的紙本申告單代替），申報正常可走電子閘門免面談</li>
+            <li>出海關後跟著「Bus／Airport Limousine」指標走</li>
+            <li>找到橘色「Airport Limousine Bus」售票櫃台或售票機</li>
+            <li>10人建議推派1人先去買齊全部10張票，其他人留著看行李，省時間</li>
+          </ol></div></td></tr>
+          <tr><td class="time" data-label="時間">17:30</td><td class="name" data-label="景點/餐廳">利木津巴士 → 橫濱站(YCAT)</td><td data-label="特色簡介">機場巴士直達橫濱站，行李免轉乘搬運，最適合10人多行李移動</td><td data-label="停留時間">車程約85–95分</td><td data-label="交通建議"><div class="transit">站務人員會協助把大件行李放進車廂下方，記得核對行李吊牌</div></td></tr>
+          <tr><td class="time" data-label="時間">-</td><td class="name" data-label="景點/餐廳">橫濱站 → 港未來線 → 港未來站5號出口</td><td data-label="特色簡介">轉乘港未來線前往飯店</td><td data-label="停留時間">車程約5分+步行5分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>下車後跟車站指標走到「東口」或中央通道地下樓層</li>
+            <li>找藍色圓圈標誌「MM」＋「港未來線」指示牌</li>
+            <li>月台位於地下4樓（B4F），第一次到站可先買好 Suica／PASMO IC卡（每人一張，之後全程通用）</li>
+            <li>跟著指標往下走，通過藍色閘門，搭往「元町・中華街」方向，到港未來站5號出口</li>
+            <li>出站後步行約5分即抵達飯店</li>
+          </ol></div></td></tr>
+          <tr><td class="time" data-label="時間">19:30</td><td class="name" data-label="景點/餐廳">飯店 Check-in</td><td data-label="特色簡介">三井花園飯店橫濱港未來普米爾</td><td data-label="停留時間">約30分</td><td data-label="交通建議"><div class="transit">先卸行李、稍作梳洗再出門吃飯，長輩可留在房間休息</div></td></tr>
+          <tr class="gem"><td class="time" data-label="時間">20:00</td><td class="name" data-label="景點/餐廳">阿夫利柚子拉麵（AFURI）<span class="tag gemtag">推薦</span></td><td data-label="特色簡介">招牌柚子鹽味拉麵，清爽解膩很適合搭機一天後的晚餐。<br><i>隱世替代：崎陽軒橫濱本店燒賣食堂——本地人下班常買的橫濱名物，遊客知道的較少，就在地標大廈斜對面。</i></td><td data-label="停留時間">約1小時</td><td data-label="交通建議"><div class="transit">從飯店步行約5–8分至 Landmark Plaza 1F；飯後可在廣場逛逛再回房</div></td></tr>
+          <tr><td class="time" data-label="時間">21:30</td><td class="name" data-label="景點/餐廳">返回飯店休息</td><td data-label="特色簡介">第一天以「安全抵達」為主，不硬排行程</td><td data-label="停留時間">-</td><td data-label="交通建議"><div class="transit">步行返回即可</div></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </details>
+  </section>
+
+  <!-- ============ DAY 2 ============ -->
+  <section>
+  <details class="day" id="day2">
+    <summary>
+      <div class="sum-badge">2</div>
+      <div class="sum-main">
+        <div class="date">8/19（三）</div>
+        <h3>八景島海島樂園</h3>
+        <div class="theme">日本最大海洋樂園，午後 Outlet 或商圈二選一</div>
+      </div>
+      <div class="chev">⌄</div>
+    </summary>
+    <div class="day-body">
+      <div class="day-logi">
+        <span class="logi-chip">住宿：橫濱三井花園（第2晚）</span>
+        <span class="logi-chip">今日重點：室內外皆有，長輩可多留水族館內乘涼</span>
+      </div>
+
+      <div class="block"><h4>☀ 早：前往八景島</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">7:30</td><td class="name" data-label="景點">飯店早餐</td><td data-label="特色簡介">可自費(3,520円/人)升級三井花園著名法式吐司，或用一般早餐</td><td data-label="停留時間">約45分</td><td data-label="交通建議"><div class="transit">趕不及升級早餐也無妨，飯店周邊超商也很方便</div></td></tr>
+          <tr><td class="time" data-label="時間">9:00</td><td class="name" data-label="景點">飯店 → 八景島站</td><td data-label="特色簡介">多段轉乘，建議跟著隊伍慢慢走不用趕</td><td data-label="停留時間">車程約45分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>步行約12分至櫻木町站</li>
+            <li>搭 JR根岸線（大船方向）到新杉田站</li>
+            <li><b>新杉田站需出站轉乘</b>：跟著地下通道指標走約5分，轉搭「海濱線（Seaside Line）」往金澤八景方向</li>
+            <li>在八景島站下車，出站後沿電動步道步行約8分即抵達樂園入口</li>
+          </ol></div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌤 午：八景島 SEA PARADISE</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="gem"><td class="time" data-label="時間">10:00</td><td class="name" data-label="景點">八景島 SEA PARADISE</td><td data-label="特色簡介">免門票入園，付費才需買水族館／遊樂設施票。金字塔造型水族館內10萬隻魚，海豚夢幻館可走水中隧道；還有摩天輪、沙灘與107公尺自由落體（自費，適合年輕人）。<br><i>隱世tip：多數人只顧衝水族館，園區海濱棧道與餵魚體驗池反而人少清幽，是拍照秘境。</i></td><td data-label="停留時間">約4.5–5小時（含午餐）</td><td data-label="交通建議"><div class="transit">建議長輩安排較多時間留在水族館室內區乘涼，年輕人可自行加碼刺激設施後再會合；園內美食街可解決午餐，不用外出</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌇 午後・晚：Outlet 或商圈（二選一）</h4>
+      <div class="opt-label">Option A · 三井橫濱港灣 Outlet + UNIQLO PARK</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>地點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">15:00</td><td class="name" data-label="地點">八景島站 → 鳥濱站</td><td data-label="特色簡介">搭海濱線（Seaside Line）往新杉田方向</td><td data-label="停留時間">車程約15分+步行5分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>從樂園出口沿電動步道走回八景島站，約8分</li>
+            <li>月台候車，搭海濱線（往新杉田方向）</li>
+            <li>依序經過市大醫學部、福浦、產業振興中心、幸浦、並木中央、並木北，共7站到鳥濱站，車程約15分</li>
+            <li>出站後步行約5分抵達 MITSUI OUTLET PARK 橫濱港灣</li>
+          </ol></div></td></tr>
+          <tr><td class="time" data-label="時間">15:30</td><td class="name" data-label="地點">Outlet 逛街 + UNIQLO PARK + 晚餐</td><td data-label="特色簡介">品牌選擇多、美食街選項豐富，適合分組各吃各的；園區內的UNIQLO PARK是全球規模最大的UNIQLO旗艦店，頂樓有大型戶外公園與遊樂設施，小孩可以在這邊放電</td><td data-label="停留時間">約2.5–3小時</td><td data-label="交通建議"><div class="transit">戶外Outlet走道較長，長輩可安排中途坐下休息</div></td></tr>
+          <tr><td class="time" data-label="時間">18:30</td><td class="name" data-label="地點">Outlet → 新杉田 → 櫻木町</td><td data-label="特色簡介">原路線折返港未來區</td><td data-label="停留時間">步行5分+車程約20分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>從Outlet步行約5分回鳥濱站</li>
+            <li>搭海濱線（往新杉田方向），2站約5分到新杉田站</li>
+            <li>新杉田站內轉搭JR根岸線（橫濱方向），2站約6分到櫻木町站</li>
+          </ol>傍晚人潮不算多，可安心慢慢走</div></td></tr>
+          <tr><td class="time" data-label="時間">-</td><td class="name" data-label="地點">櫻木町站 → 紅磚倉庫</td><td data-label="特色簡介">-</td><td data-label="停留時間">步行約15分，或1站電車</td><td data-label="交通建議"><div class="transit">可沿汽車道經 Landmark Plaza 步行約15分直達；或搭港未來線1站到日本大通站，出站步行約5分</div></td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="opt-label">Option B · 橫濱車站商圈 + JOINUS（雨天也適合，全程地下街）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>地點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">15:00</td><td class="name" data-label="地點">八景島站 → 新杉田 → 橫濱站</td><td data-label="特色簡介">海濱線轉根岸線直達橫濱站</td><td data-label="停留時間">車程約35分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>八景島站搭海濱線（往新杉田方向），約9站、19分到新杉田站</li>
+            <li>新杉田站需出站轉乘，跟著地下通道指標走約5分，轉搭JR根岸線（橫濱方向）</li>
+            <li>根岸線2站約6分到橫濱站</li>
+          </ol></div></td></tr>
+          <tr><td class="time" data-label="時間">16:00</td><td class="name" data-label="地點">JOINUS 逛街 + 晚餐</td><td data-label="特色簡介">地下街全天候不怕日曬雨淋，長輩走起來最輕鬆的選項</td><td data-label="停留時間">約2.5小時</td><td data-label="交通建議"><div class="transit">橫濱站內直接連通JOINUS地下街，不用出站，全程有冷氣不怕曬</div></td></tr>
+          <tr><td class="time" data-label="時間">18:45</td><td class="name" data-label="地點">橫濱站 → 港未來線 → 港未來站</td><td data-label="特色簡介">-</td><td data-label="停留時間">車程約5分+步行8分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>跟著橫濱站「港未來線」藍色MM指示牌走到地下4樓月台</li>
+            <li>搭往「元町・中華街」方向，1站到港未來站</li>
+            <li>出站後步行約8分即可到紅磚倉庫</li>
+          </ol></div></td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="tbl-wrap" style="margin-top:14px"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="gem"><td class="time" data-label="時間">19:00</td><td class="name" data-label="景點">港未來區・紅磚倉庫</td><td data-label="特色簡介">歷史倉庫改建的港灣商場，夜間打燈氣氛浪漫。<br><i>隱世tip：象の鼻公園（Zou-no-hana Park）就在紅磚倉庫與港未來之間，因防波堤形似象鼻得名——多數遊客直衝紅磚倉庫拍照，很少人繼續走到這裡，夕陽與夜景更寧靜，還能拍到摩天輪跨海同框。</i></td><td data-label="停留時間">約1–1.5小時</td><td data-label="交通建議"><div class="transit">紅磚倉庫沿海堤步行約8–10分可到象の鼻公園，全程平坦好走</div></td></tr>
+          <tr><td class="time" data-label="時間">20:30</td><td class="name" data-label="景點">步行回三井花園飯店</td><td data-label="特色簡介">-</td><td data-label="停留時間">約15分</td><td data-label="交通建議"><div class="transit">沿港未來區海岸步行即可，夜間安全、路燈明亮</div></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </details>
+  </section>
+
+  <!-- ============ DAY 3 ============ -->
+  <section>
+  <details class="day" id="day3">
+    <summary>
+      <div class="sum-badge">3</div>
+      <div class="sum-main">
+        <div class="date">8/20（四）</div>
+        <h3>港未來晨間散策 → 換宿潮見</h3>
+        <div class="theme">早晨拍港灣美景，午後移動東京，晚上皇居、丸之內夜景</div>
+      </div>
+      <div class="chev">⌄</div>
+    </summary>
+    <div class="day-body">
+      <div class="day-logi">
+        <span class="logi-chip">今日換宿：橫濱 → 東京灣潮見王子大飯店</span>
+        <span class="logi-chip">行李較多，建議整理輕便再出發</span>
+      </div>
+
+      <div class="block"><h4>☀ 早：港未來晨間漫步（建議只選1條路線，不用4個點都走）</h4>
+      <div class="opt-label">路線A · 輕鬆版（皆在飯店步行圈內）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="gem"><td class="time" data-label="時間">8:30</td><td class="name" data-label="景點">日本丸紀念公園</td><td data-label="特色簡介">清晨海風平靜、水面如鏡，站在石造船塢旁可拍到日本丸帆船與地標塔倒映水面的明信片畫面</td><td data-label="停留時間">約30分</td><td data-label="交通建議"><div class="transit">飯店步行約8–10分可達</div></td></tr>
+          <tr class="gem"><td class="time" data-label="時間">9:10</td><td class="name" data-label="景點">臨港公園</td><td data-label="特色簡介">港未來區最大綠地，直接臨海，當地居民晨跑熱點，可吹海風欣賞橫濱灣大橋</td><td data-label="停留時間">約30分</td><td data-label="交通建議"><div class="transit">從日本丸公園沿海岸步行約10分即達</div></td></tr>
+          <tr><td class="time" data-label="時間">9:40</td><td class="name" data-label="景點">返回飯店</td><td data-label="特色簡介">-</td><td data-label="停留時間">步行約15分</td><td data-label="交通建議"><div class="transit">沿海岸步行返回三井花園飯店，準備退房</div></td></tr>
+        </tbody>
+      </table></div>
+      <div class="opt-label">路線B · 攝影進階版（多走一點，適合體力較好的人）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="gem"><td class="time" data-label="時間">8:30</td><td class="name" data-label="景點">大棧橋國際客輪碼頭</td><td data-label="特色簡介">被譽為海之玄關，屋頂木棧道24小時開放，清晨逆光/日出是攝影愛好者首選。<br><i>隱世tip：木棧道上躺著看天空的當地人比遊客多，很少觀光團專程來。</i></td><td data-label="停留時間">約30分</td><td data-label="交通建議"><div class="transit">飯店步行約15分，地勢平坦</div></td></tr>
+          <tr><td class="time" data-label="時間">9:10</td><td class="name" data-label="景點">山下公園</td><td data-label="特色簡介">全天開放的橫濱代表海濱公園，可一望橫濱灣大橋，近距離欣賞歷史郵輪冰川丸</td><td data-label="停留時間">約30分</td><td data-label="交通建議"><div class="transit">大棧橋沿海岸步行約10分可達</div></td></tr>
+          <tr class="caution"><td class="time" data-label="時間">9:40</td><td class="name" data-label="景點">返回飯店</td><td data-label="特色簡介">-</td><td data-label="停留時間">車程約10分+步行5分</td><td data-label="交通建議"><div class="transit">山下公園步行約10分到元町・中華街站，搭港未來線（往橫濱方向）2站到港未來站，步行5分回飯店。這條路線較遠，建議提早10分出發，避免壓縮退房時間</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌤 午：橫濱站商圈午餐 + 移動東京</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>地點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">10:30</td><td class="name" data-label="地點">回飯店 Check-out</td><td data-label="特色簡介">整理行李，貴重物品隨身，大件行李可先集中放大廳</td><td data-label="停留時間">約20分</td><td data-label="交通建議"><div class="transit">港未來站步行到橫濱站約10分，或搭港未來線1站</div></td></tr>
+          <tr class="gem"><td class="time" data-label="時間">10:50</td><td class="name" data-label="地點">Option：AniTouch港未來（室內親子動物園）</td><td data-label="特色簡介">橫濱World Porters 2F的室內型觸摸動物園，20多種、200多隻動物近距離互動，最受歡迎的是「水豚貓掌浴」，適合帶小孩的家庭；全程室內，下雨天也能玩，10:30–21:00全年無休</td><td data-label="停留時間">約1–1.5小時（自費，大人1,500円/兒童800円）</td><td data-label="交通建議"><div class="transit">從飯店步行約5–8分到港未來站，出站或馬車道站步行約5分到橫濱World Porters；<b>這是加碼選項</b>，有帶小孩的家庭可以來，其他人可直接前往橫濱站逛街用餐，約12:15在橫濱站商圈會合午餐</div></td></tr>
+          <tr><td class="time" data-label="時間">11:00</td><td class="name" data-label="地點">橫濱車站商圈逛街用餐</td><td data-label="特色簡介">西口：JOINUS、橫濱MORE'S／東口：BAY QUARTER、PORTA、SoGo。推薦：勝烈庵炸豬排（百年老店，好坐好停很適合長輩）、鯛塩そば灯花（SoGo店，清爽好入口）</td><td data-label="停留時間">約2.5小時</td><td data-label="交通建議"><div class="transit">若Day1已吃過阿夫利，這裡可換炸豬排或蕎麥麵；若有人去了AniTouch，可從馬車道站直接搭港未來線到橫濱站會合（同一條線不用轉車，約5分），或步行約15分</div></td></tr>
+          <tr class="caution"><td class="time" data-label="時間">13:50</td><td class="name" data-label="地點">橫濱站 → 東京站 → 潮見站</td><td data-label="特色簡介">先搭JR東海道線到東京站，再轉京葉線到潮見站</td><td data-label="停留時間">車程約45–50分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>橫濱站內跟著「JR線」黃色指標，搭東海道線（東京方向）</li>
+            <li>東京站下車後，<b>京葉線月台距離較遠</b>（站內步行約10–15分，跟著「京葉線口」地下通道指標走）</li>
+            <li>10人建議提前找電梯位置，方便長輩與行李移動，避免搭到陡的手扶梯</li>
+            <li>搭京葉線（舞濱方向）到潮見站下車</li>
+          </ol></div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌇 晚：飯店休息 → 皇居、丸之內夜景</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">14:50</td><td class="name" data-label="景點">東京灣潮見王子大飯店 Check-in</td><td data-label="特色簡介">建議安排至少1小時緩衝讓長輩休息，不硬性跟團出門</td><td data-label="停留時間">約1小時</td><td data-label="交通建議"><div class="transit">出潮見站後右轉即到，步行約1–2分（飯店幾乎就貼著車站），飯店1樓有全家便利商店，之後幾天早餐可在這裡解決</div></td></tr>
+          <tr><td class="time" data-label="時間">16:00</td><td class="name" data-label="景點">潮見站 → 京葉線（東京方向） → 東京站</td><td data-label="特色簡介">-</td><td data-label="停留時間">車程約17分</td><td data-label="交通建議"><div class="transit">潮見站月台候車，搭京葉線（東京方向），中途不用轉車，坐到東京站下車即可</div></td></tr>
+          <tr class="gem"><td class="time" data-label="時間">16:30</td><td class="name" data-label="景點">皇居外苑巡禮</td><td data-label="特色簡介">日本天皇居所、江戶城遺址，保留石垣、櫓與護城河，從東京站丸之內、大手町步行可達，地勢平坦適合全齡；周邊還有千鳥之淵公園、北之丸公園、日比谷公園，範圍較大，這次時間有限只安排皇居外苑本身，其餘留給下次賞櫻/賞楓季再訪。<br><i>隱世tip：和田倉噴水公園就在皇居外苑旁，多數遊客直衝二重橋拍照沒注意到這裡——噴水池加綠意、幾乎沒有觀光團，市中心難得的清幽休憩點，很適合長輩坐著乘涼。</i></td><td data-label="停留時間">約1小時</td><td data-label="交通建議"><div class="transit">東京站丸之內口出站，往大手町方向步行約8–10分即達皇居外苑；體力有限的人也可選擇留在潮見飯店附近超商/商場休息，晚上直接約在丸之內會合晚餐</div></td></tr>
+          <tr><td class="time" data-label="時間">17:30</td><td class="name" data-label="景點">東京一番街 + LEGO Store Marunouchi</td><td data-label="特色簡介">東京站內商店街，血拚用餐一次滿足，LEGO店可讓孩子逛得盡興</td><td data-label="停留時間">約1.5–2小時</td><td data-label="交通建議"><div class="transit">從皇居外苑步行約10分回東京站，經地下街「八重洲口」方向即可找到一番街入口；全程室內冷氣，是很好的晚餐地點選擇</div></td></tr>
+          <tr><td class="time" data-label="時間">19:30</td><td class="name" data-label="景點">KITTE 丸之內</td><td data-label="特色簡介">頂樓屋頂庭園可欣賞東京車站紅磚建築與丸大樓夜景</td><td data-label="停留時間">約30–40分</td><td data-label="交通建議"><div class="transit">從一番街經東京站「丸之內南口」地下通道步行約5分即達KITTE</div></td></tr>
+          <tr><td class="time" data-label="時間">20:30</td><td class="name" data-label="景點">東京站 → 京葉線 → 潮見站</td><td data-label="特色簡介">返回飯店，大浴池泡湯洗去疲憊</td><td data-label="停留時間">車程約17分</td><td data-label="交通建議"><div class="transit">同上午路線原路折返即可；出潮見站右轉步行1–2分就是飯店</div></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </details>
+  </section>
+
+  <!-- ============ DAY 4 ============ -->
+  <section>
+  <details class="day" id="day4">
+    <summary>
+      <div class="sum-badge">4</div>
+      <div class="sum-main">
+        <div class="date">8/21（五）</div>
+        <h3>哈利波特影城 + 東京巨蛋城</h3>
+        <div class="theme">全室內行程，最適合當雨天備用日</div>
+      </div>
+      <div class="chev">⌄</div>
+    </summary>
+    <div class="day-body">
+      <div class="day-logi">
+        <span class="logi-chip">📅 哈利波特影城須提前預約時段票</span>
+        <span class="logi-chip">今日重點：室內為主，體力消耗最低的一天</span>
+      </div>
+
+      <div class="block"><h4>☀ 早：前往哈利波特影城</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>地點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">7:20</td><td class="name" data-label="地點">早餐自理</td><td data-label="特色簡介">飯店1F有全家便利商店，可簡單解決</td><td data-label="停留時間">約20分</td><td data-label="交通建議"><div class="transit">-</div></td></tr>
+          <tr><td class="time" data-label="時間">8:00</td><td class="name" data-label="地點">潮見站 → 豐島園站</td><td data-label="特色簡介">東京站轉丸之內線到池袋，再轉西武鐵道</td><td data-label="停留時間">車程約45分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>潮見站搭京葉線（東京方向）到東京站</li>
+            <li>轉丸之內線（池袋方向）到池袋站，注意月台編號</li>
+            <li>池袋站轉西武豐島線，月台在地下</li>
+            <li>不用特別等哈利波特彩繪列車，一般車也能到，以免耗時久候</li>
+            <li>豐島園站下車即達</li>
+          </ol></div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌤 午：哈利波特影城</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="caution"><td class="time" data-label="時間">9:00</td><td class="name" data-label="景點">Warner Bros. Studio Tour Tokyo<span class="tag book">須預約</span></td><td data-label="特色簡介">親身走進電影《哈利波特》與《怪獸與牠們的產地》的室內型主題樂園。熱門展區：霍格華茲大禮堂／旋轉樓梯／交誼室／鄧不利多校長室／9¾月台與霍格華茲特快車／魔法部／斜角巷／圖書室／霍格華茲橋。熱門體驗：「飛天掃帚體驗」自由飛翔（可自費）</td><td data-label="停留時間">約4–4.5小時</td><td data-label="交通建議"><div class="transit"><b>這是指定時段入場制，務必提前2–4週在官網或KKday預約</b>，記得把電子票截圖存手機。中場咖啡廳可讓長輩歇腳，不需全程走完所有展區</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌇 晚：東京巨蛋城</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>地點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">14:00</td><td class="name" data-label="地點">豐島園站 → 後樂園站2號出口</td><td data-label="特色簡介">西武鐵道轉丸之內線</td><td data-label="停留時間">車程約35分</td><td data-label="交通建議"><div class="transit">路線與早上相反：豐島園→池袋→丸之內線（東京方向）→後樂園站</div></td></tr>
+          <tr class="gem"><td class="time" data-label="時間">14:30</td><td class="name" data-label="景點">東京巨蛋城</td><td data-label="特色簡介">遊樂園+購物商場+溫泉三溫暖的複合設施。<b>東京巨蛋棒球場</b>——讀賣巨人隊歷史悠久的主場，棒球迷可安排場外參觀；<b>棒球殿堂博物館</b>——就在巨蛋外圍，展示日本職棒12支球隊珍貴文物與2023 WBC日本隊冠軍獎盃，棒球迷不能錯過；LaQua「DELI&DISH」美食甜點區、SPA LaQua天然溫泉（5–9F）、都市型遊樂園（免門票入場，Thunder Dolphin雲霄飛車130km/h自費）。<br><i>隱世tip：小石川後樂園——江戶時代大名庭園就在巨蛋旁，多數遊客只逛LaQua購物沒發現它，可拍到古典日式庭園與現代巨蛋同框的強烈對比美照，遊客比六義園、濱離宮少很多。</i></td><td data-label="停留時間">約3.5小時</td><td data-label="交通建議"><div class="transit">建議分批行動：一半人玩設施/逛庭園，一半人先去SPA LaQua泡湯放鬆，晚點在美食街會合。喜歡人文散步者可加碼步行15分到東京大學本鄉校區（赤門、安田講堂），建議單獨小組前往</div></td></tr>
+          <tr><td class="time" data-label="時間">18:00</td><td class="name" data-label="地點">巨蛋商圈晚餐</td><td data-label="特色簡介">「神座KAMUKURA」拉麵（黃色大樓2F）／「SOBAKICHI」蕎麥麵（LaQua 1F）／日本橋玉井鰻魚天婦羅（DELI&DISH區）</td><td data-label="停留時間">約1小時</td><td data-label="交通建議"><div class="transit">-</div></td></tr>
+          <tr><td class="time" data-label="時間">19:00</td><td class="name" data-label="地點">後樂園站 → 潮見站</td><td data-label="特色簡介">返回飯店</td><td data-label="停留時間">車程約35分</td><td data-label="交通建議"><div class="transit">丸之內線（東京方向）→東京站→京葉線（舞濱方向）→潮見站；出站右轉步行1–2分就是飯店</div></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </details>
+  </section>
+
+  <!-- ============ DAY 5 ============ -->
+  <section>
+  <details class="day" id="day5">
+    <summary>
+      <div class="sum-badge">5</div>
+      <div class="sum-main">
+        <div class="date">8/22（六）</div>
+        <h3>上野、阿美橫町 → 台場</h3>
+        <div class="theme">午後可分組：秋葉原電器街 或 人形町老街</div>
+      </div>
+      <div class="chev">⌄</div>
+    </summary>
+    <div class="day-body">
+      <div class="day-logi">
+        <span class="logi-chip">✨ 台場獨角獸鋼彈最後巡禮（展至2026/8/31）</span>
+        <span class="logi-chip">今日建議依興趣分兩組，晚上台場會合</span>
+      </div>
+
+      <div class="block"><h4>☀ 早：上野公園晨間散策</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">7:40</td><td class="name" data-label="景點">早餐自理</td><td data-label="特色簡介">飯店1F全家便利商店</td><td data-label="停留時間">約20分</td><td data-label="交通建議"><div class="transit">-</div></td></tr>
+          <tr><td class="time" data-label="時間">8:30</td><td class="name" data-label="景點">潮見站 → 上野站</td><td data-label="特色簡介">-</td><td data-label="停留時間">車程約30分</td><td data-label="交通建議"><div class="transit">潮見站搭京葉線（東京方向）到東京站，轉JR山手線（上野方向）到上野站</div></td></tr>
+          <tr class="gem"><td class="time" data-label="時間">9:10</td><td class="name" data-label="景點">上野恩賜公園、不忍池</td><td data-label="特色簡介">晨間散策拍照，池畔荷花與野鳥景色宜人。<br><i>隱世tip：五條天神社／花園稻荷神社，就在清水觀音堂旁的小徑上，紅色鳥居隧道很美，但知名度遠低於淺草，遊客常直接錯過，是拍照秘境。</i>如有人想看北極熊，上野動物園8:30開園可提早去，但會壓縮後面行程，建議分組前往</td><td data-label="停留時間">約1小時</td><td data-label="交通建議"><div class="transit">上野站「公園口」出站即達，步行不到1分；公園內步道平坦，適合全齡散步</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌤 午：阿美橫町</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點/餐廳</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">10:30</td><td class="name" data-label="景點/餐廳">阿美橫町逛街 + 鴨To蔥拉麵（必吃）</td><td data-label="特色簡介">熱鬧平價商店街，海鮮乾貨、藥妝、服飾應有盡有</td><td data-label="停留時間">約2小時</td><td data-label="交通建議"><div class="transit">從上野公園沿不忍池方向步行約8–10分，或走回上野站再往「不忍口」方向步行約5分即達阿美橫町；商店密集人多，建議約定集合時間地點後自由逛，不必10人同進同出</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌇 午後（依興趣分組，二選一）</h4>
+      <div class="opt-label">Option A · 秋葉原（適合喜歡電器/動漫/次文化的人）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>地點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="gem"><td class="time" data-label="時間">13:00</td><td class="name" data-label="地點">秋葉原</td><td data-label="特色簡介">日本三大電器街之一，也是動漫、模型、女僕店聚集的「御宅族聖地」。<br><i>隱世tip：往南側神田川、萬世橋一帶散策，可欣賞懷舊老東京風情——遊客多留在電器街主幹道，很少人走到河岸邊。</i></td><td data-label="停留時間">約2小時</td><td data-label="交通建議"><div class="transit">上野站搭日比谷線（銀座方向）到秋葉原站，約6分</div></td></tr>
+          <tr><td class="time" data-label="時間">15:00</td><td class="name" data-label="地點">秋葉原站 → 新橋站</td><td data-label="特色簡介">-</td><td data-label="停留時間">車程約10分</td><td data-label="交通建議"><div class="transit">秋葉原站沒有直達新橋的地下鐵，改搭JR山手線或京濱東北線（新橋・東京方向），約4站、10分</div></td></tr>
+        </tbody>
+      </table></div>
+      <div class="opt-label">Option B · 人形町（適合想放慢腳步、逛老街的長輩）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>地點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="gem"><td class="time" data-label="時間">13:30</td><td class="name" data-label="地點">人形町</td><td data-label="特色簡介">東京中央區下町地區，江戶風情濃厚，百年老店、和菓子店、老神社林立，日劇「新參者」「孤獨美食家」取景地。<br><i>隱世tip：這裡本身就是遊客較少知道的下町，比淺草更生活化、更悠閒好走。</i></td><td data-label="停留時間">約2小時</td><td data-label="交通建議"><div class="transit">上野站搭日比谷線（銀座方向），過秋葉原不下車，續坐到人形町站，約12分</div></td></tr>
+          <tr class="caution"><td class="time" data-label="時間">15:00</td><td class="name" data-label="地點">人形町站 → 新橋站</td><td data-label="特色簡介">-</td><td data-label="停留時間">車程約10分</td><td data-label="交通建議"><div class="transit"><b>注意：人形町不是搭日比谷線去新橋（日比谷線不停新橋）</b>，請在人形町站轉乘「都營淺草線」（羽田機場方向），約10分直達新橋站</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>🌆 晚：台場（兩組會合）</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點/餐廳</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">15:15</td><td class="name" data-label="地點">兩組於新橋站會合 → 台場</td><td data-label="特色簡介">兩組分別從秋葉原（JR）、人形町（都營淺草線）在新橋站會合，一起轉乘前往台場</td><td data-label="停留時間">車程約15分</td><td data-label="交通建議"><div class="transit">新橋站轉搭百合海鷗線（台場方向），約15分到台場站</div></td></tr>
+          <tr class="gem caution"><td class="time" data-label="時間">17:00</td><td class="name" data-label="景點">台場 1:1獨角獸鋼彈<span class="tag gemtag">最後巡禮</span></td><td data-label="特色簡介">這座2017年起展示的1:1實物大鋼彈，將在<b>2026/8/31正式謝幕退役</b>，目前已換上最終紀念塗裝「Ver. TWC FINAL」！白天變身秀11:00/13:00/15:00/17:00，夜間19:00–21:00整點也有燈光變身表演，可搭配晚餐前後時間觀看。<br>周邊還有購物商場、室內樂高探索樂園、濱海公園夜景。<br><i>隱世tip：台場海濱公園往彩虹橋方向的「潮風公園」側，遊客多聚在鋼彈廣場拍照，較少人走到這片沙灘看彩虹橋夜景配對岸東京鐵塔，更寧靜浪漫。</i></td><td data-label="停留時間">約2.5–3小時</td><td data-label="交通建議"><div class="transit">台場站出站步行約5–7分即達DiverCity Tokyo Plaza廣場；錯過這班就要等下次來日本才有機會（甚至可能沒有機會），建議提早規劃好時間卡上其中一場變身秀</div></td></tr>
+          <tr><td class="time" data-label="時間">18:30</td><td class="name" data-label="餐廳">金子半之助 江戶前天丼</td><td data-label="特色簡介">DiverCity 美食街人氣天丼</td><td data-label="停留時間">約1小時</td><td data-label="交通建議"><div class="transit">用餐熱門店家可能排隊，建議先派1–2人排隊登記</div></td></tr>
+          <tr><td class="time" data-label="時間">20:30</td><td class="name" data-label="地點">台場 → 潮見站</td><td data-label="特色簡介">返回飯店</td><td data-label="停留時間">車程約35分</td><td data-label="交通建議"><div class="transit">百合海鷗線→新橋站→JR山手線→東京站→京葉線→潮見站；出站右轉步行1–2分就是飯店</div></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </details>
+  </section>
+
+  <!-- ============ DAY 6 ============ -->
+  <section>
+  <details class="day" id="day6">
+    <summary>
+      <div class="sum-badge">6</div>
+      <div class="sum-main">
+        <div class="date">8/23（日）</div>
+        <h3>春日部小新故鄉 或 都會潮流之旅</h3>
+        <div class="theme">兩個Option風格完全不同，也可分組各玩各的</div>
+      </div>
+      <div class="chev">⌄</div>
+    </summary>
+    <div class="day-body">
+      <div class="day-logi">
+        <span class="logi-chip">📅 teamLab Borderless、Shibuya Sky 須提前預約時段票</span>
+        <span class="logi-chip">體力好想深度逛街選Option2；想悠閒、無壓力選Option1</span>
+      </div>
+
+      <div class="block"><h4>Option 1 · 春日部市（蠟筆小新故鄉）— 隱世輕旅行半日遊</h4>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>地點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="gem"><td class="time" data-label="時間">上午出發</td><td class="name" data-label="地點">春日部市</td><td data-label="特色簡介">《蠟筆小新》野原新之助一家的故鄉，2004年獲頒春日部市「榮譽居民」。景點包括春日部站西口小新看板、市役所小新銅像、LaLa Garden購物中心、觀光案內所「ぷらっとかすかべ」小新人形展示。<br><i>隱世度極高：這裡幾乎沒有觀光團，是少數「真正沒有遊客」的東京近郊景點，但設施規模較小、非主題樂園級別。</i></td><td data-label="停留時間">建議半天（約3–4小時，含來回車程）</td><td data-label="交通建議"><div class="transit">潮見站搭京葉線（東京方向）到東京站，步行連通大手町站，轉東京Metro日比谷線或半藏門線（北千住方向）到北千住站，轉東武伊勢崎線（急行，春日部方向）到春日部站；部分班次會直通不需換車，建議出發前用Google Maps確認當下班次，單程約70–80分。來回車程約需預留2.5小時，建議上午出發、下午1–2點前返回市區銜接晚上行程，或直接作為輕鬆一日、傍晚回飯店休息</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="block"><h4>Option 2 · 澀谷／表參道／麻布台之丘／六本木 — 東京潮流之旅</h4>
+      <div class="opt-label">站1：澀谷潮流心臟（早晨至中午，建議停留2.5–3小時）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="caution"><td class="time" data-label="時間">上午</td><td class="name" data-label="景點">澀谷十字路口 + Shibuya Sky<span class="tag book">須預約</span></td><td data-label="特色簡介">感受全球最繁忙十字路口，登上Shibuya Sky高空展望台俯瞰東京都市景觀，天氣好時可遠眺富士山</td><td data-label="停留時間">約2.5–3小時</td><td data-label="交通建議"><div class="transit">Shibuya Sky為指定時段預約制，務必提前上官網訂票，現場排隊常常人多；潮見站搭京葉線（東京方向）到東京站，轉JR山手線（澀谷・新宿方向）到澀谷站，車程約35分</div></td></tr>
+        </tbody>
+      </table></div>
+      <div class="opt-label">站2：表參道林蔭大道（午後，建議停留2.5小時）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="gem"><td class="time" data-label="時間">午後</td><td class="name" data-label="景點">表參道</td><td data-label="特色簡介">櫸樹林蔭大道，安藤忠雄設計的Omotesando Hills，周邊精品旗艦店與精緻咖啡文化（如Blue Bottle）。<br><i>隱世tip：從表參道主街轉進「裏參道」（貓街/Cat Street沿線巷弄），本地年輕人愛去的獨立咖啡店和選物店聚集，人少好逛。</i></td><td data-label="停留時間">約2.5小時</td><td data-label="交通建議"><div class="transit">澀谷步行或搭地下鐵半藏門線1站即達表參道</div></td></tr>
+        </tbody>
+      </table></div>
+      <div class="opt-label">站3：麻布台之丘 teamLab（傍晚，建議停留2–2.5小時）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr class="caution"><td class="time" data-label="時間">傍晚</td><td class="name" data-label="景點">麻布台之丘 + teamLab Borderless<span class="tag book">須預約</span></td><td data-label="特色簡介">東京最新地標，融合現代藝術、綠地與曲面建築設計，teamLab無界數位藝術美術館全室內、冷氣開放，商場內品嚐頂級甜點咖啡</td><td data-label="停留時間">約2–2.5小時</td><td data-label="交通建議"><div class="transit"><b>注意：表參道沒有日比谷線經過</b>，可搭千代田線（霞ケ関方向）4站到霞ケ関，轉日比谷線1站到神谷町站，直通麻布台丘，全程約18分、1次轉乘；10人也可考慮分乘2–3輛計程車直達，車程約15–20分，省去轉乘麻煩。<b>teamLab為指定時段電子票，務必提前預約，現場恐候位或售完</b></div></td></tr>
+        </tbody>
+      </table></div>
+      <div class="opt-label">站4：六本木夜生活（夜晚，可視體力選擇是否前往）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>景點</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">夜晚</td><td class="name" data-label="景點">六本木 Roppongi Hills + 森美術館展望台</td><td data-label="特色簡介">頂級餐廳酒館聚集地，展望台可近距離欣賞點亮燈火的東京鐵塔夜景</td><td data-label="停留時間">約1.5–2小時</td><td data-label="交通建議"><div class="transit">神谷町站搭日比谷線1站到六本木站（約2分），或步行約15–20分。<b>長輩版建議：</b>走完前3站已充實一天，若感覺累，可直接從麻布台之丘返回潮見飯店休息，不用勉強走完第4站</div></td></tr>
+          <tr class="caution"><td class="time" data-label="時間">21:30</td><td class="name" data-label="景點">六本木站 → 潮見站</td><td data-label="特色簡介">返回飯店</td><td data-label="停留時間">車程約35分</td><td data-label="交通建議"><div class="transit">六本木站搭日比谷線（上野方向）到銀座站（4站，約10分），轉丸之內線1站到東京站（約2分），再轉京葉線（舞浜方向）到潮見站，出站右轉步行1–2分就是飯店；10人夜間移動建議前後帶隊，也可視情況分組搭計程車直達飯店</div></td></tr>
+        </tbody>
+      </table></div></div>
+
+      <div class="note-box"><b>分組建議：</b>10人也可以分成兩組——喜歡悠閒、想體驗「沒有遊客的日本小鎮」的人選Option1春日部；體力好、想深度逛東京潮流地標的人選Option2，晚上約在潮見飯店或市區某餐廳會合分享今天的收穫。</div>
+    </div>
+  </details>
+  </section>
+
+  <!-- ============ DAY 7 ============ -->
+  <section>
+  <details class="day" id="day7">
+    <summary>
+      <div class="sum-badge">7</div>
+      <div class="sum-main">
+        <div class="date">8/24（一）</div>
+        <h3>潮見 → 羽田機場 → 台北</h3>
+        <div class="theme">悠閒退房，中午前出發往機場</div>
+      </div>
+      <div class="chev">⌄</div>
+    </summary>
+    <div class="day-body">
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時間</th><th>行程</th><th>特色簡介</th><th>停留時間</th><th>交通建議與注意事項</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時間">上午</td><td class="name" data-label="行程">飯店周邊自由活動 / 退房</td><td data-label="特色簡介">潮見站周邊生活氣息濃厚，可逛逛當地超市、咖啡店，體驗一般東京住宅區的日常氛圍</td><td data-label="停留時間">依個人安排</td><td data-label="交通建議"><div class="transit">退房後大件行李可寄放飯店櫃台，或帶到羽田機場寄物櫃</div></td></tr>
+          <tr class="caution"><td class="time" data-label="時間">中午前</td><td class="name" data-label="行程">潮見站 → 羽田機場</td><td data-label="特色簡介">前往國際線航廈</td><td data-label="停留時間">車程約50–60分</td><td data-label="交通建議"><div class="transit"><ol>
+            <li>潮見站搭京葉線（東京方向）到東京站</li>
+            <li><b>注意：東京單軌電車和京急線都不是從東京站發車</b>，請在東京站轉JR山手線或京濱東北線（往濱松町・品川方向），到濱松町站下車</li>
+            <li>濱松町站轉搭「東京單軌電車」（Tokyo Monorail），直達羽田機場各航廈，約15–20分</li>
+            <li>建議提早抓90–120分抵達機場（含轉乘、報到、安檢），10人建議提前確認電梯/無障礙路線；行李多也可考慮從飯店直接搭利木津巴士到羽田機場，免轉乘但車程較久且需視交通狀況</li>
+          </ol></div></td></tr>
+          <tr><td class="time" data-label="時間">14:30</td><td class="name" data-label="行程">CI221 羽田 → 松山</td><td data-label="特色簡介">中華航空航班</td><td data-label="停留時間">-</td><td data-label="交通建議"><div class="transit">候機時間充足可逛免稅店</div></td></tr>
+          <tr><td class="time" data-label="時間">16:55</td><td class="name" data-label="行程">抵達 TSA 松山機場T1</td><td data-label="特色簡介">平安返抵台北</td><td data-label="停留時間">-</td><td data-label="交通建議"><div class="transit">-</div></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </details>
+  </section>
+
+  <!-- ============ 雨天備案 ============ -->
+  <section id="rain">
+    <div class="rain-card">
+      <h3>☔ 雨天／颱風彈性備案</h3>
+      <p class="sec-desc" style="margin-top:6px;">8月東京午後常有雷陣雨，偶有颱風接近。原則：每天出發前看一次天氣預報，輕便雨具（折傘/雨衣）每人1份，酷熱天也可當陽傘用。以下是各日戶外段落的室內替換建議，不需要整套硬性照走，就近彈性替換即可。</p>
+
+      <div class="tbl-wrap" style="margin-top:14px"><table class="plan">
+        <thead><tr><th>日期</th><th>原戶外行程</th><th>雨天替換建議</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="日期">Day2</td><td class="name" data-label="原戶外行程">八景島沙灘/摩天輪</td><td data-label="雨天替換建議">八景島本身泰半室內（水族館、海豚館），影響不大；午後直接選 Option B 橫濱車站 JOINUS 地下街，全天候不受天氣影響</td></tr>
+          <tr><td class="time" data-label="日期">Day3</td><td class="name" data-label="原戶外行程">港未來晨間漫步</td><td data-label="雨天替換建議">改為晚一點出發，直接去Check-out後的AniTouch港未來（室內親子動物園，World Porters 2F）打發早上時間，把晨間散策往後移到有空的時段再補（皇居外苑無法完全室內化，建議雨小再去）</td></tr>
+          <tr><td class="time" data-label="日期">Day5</td><td class="name" data-label="原戶外行程">上野公園、阿美橫町</td><td data-label="雨天替換建議">改逛上野公園旁的東京國立博物館或國立科學博物館（室內）；台場段本身室內比例高（DiverCity、AquaCity商場），基本不受影響</td></tr>
+          <tr><td class="time" data-label="日期">Day6</td><td class="name" data-label="原戶外行程">澀谷十字路口、表參道街道漫步</td><td data-label="雨天替換建議">縮短戶外街道時間，把表參道逛街改成室內的Omotesando Hills，並延長麻布台之丘teamLab（本身全室內）的停留時間</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="opt-label" style="margin-top:18px">如果整天都下大雨：全天室內備選行程（可套用在任一天）</div>
+      <div class="tbl-wrap"><table class="plan">
+        <thead><tr><th>時段</th><th>地點</th><th>特色簡介</th></tr></thead>
+        <tbody>
+          <tr><td class="time" data-label="時段">早</td><td class="name" data-label="地點">台場 AquaCity / DiverCity</td><td data-label="特色簡介">室內商場，順道觀賞獨角獸鋼彈（廣場有遮頂區，小雨也不影響觀賞變身秀）</td></tr>
+          <tr class="gem"><td class="time" data-label="時段">午</td><td class="name" data-label="地點">豐洲 teamLab Planets TOKYO</td><td data-label="特色簡介">赤腳走進光影水域的沉浸式室內美術館，建議先吃飽再進場（館內不能飲食），停留2–3小時</td></tr>
+          <tr class="gem"><td class="time" data-label="時段">晚</td><td class="name" data-label="地點">品川 maxell AQUA PARK 水族館</td><td data-label="特色簡介">室內水族館，2026/7/4–9/6 期間限定「花火水族館 by NAKED」夏季光雕水母池活動，恰好與此行程時間重疊，是很應景的隱藏彩蛋</td></tr>
+        </tbody>
+      </table></div>
+      <p class="sec-desc">交通：台場正好在百合海鷗線中段，兩個方向都能直達，不必都繞去新橋——前往豐洲teamLab Planets，搭百合海鷗線（豐洲方向）到新豐洲站，出站即達，約15分；前往品川水族館，搭百合海鷗線（新橋方向）到新橋站，轉JR山手線（品川方向）到品川站，約25分。人多建議分組搭計程車較快，依實際所在位置就近彈性選1–2個室內點即可，不必勉強走完整套。</p>
+    </div>
+  </section>
+
+  <!-- ============ 特別注意事項 ============ -->
+  <section id="notes">
+    <h2 class="sec-title">特別注意事項</h2>
+    <div class="notes-grid">
+      <div class="notecard">
+        <h4>🌡 天氣與健康</h4>
+        <p>8月東京均溫32–35°C、高溫高濕，正午戶外曝曬強烈。戶外行程盡量安排在早上／傍晚，正午前後安排室內午餐＋休息；每人隨身水壺，超商隨處可補水；備妥防曬用品、帽子、涼感巾；長輩請帶好常用藥品。</p>
+      </div>
+      <div class="notecard">
+        <h4>🚶 長輩同行的走路節奏</h4>
+        <p>全隊配速以最慢的人為準，每個景點抓15–20分彈性緩衝；每日至少安排1–2次坐下歇腳（咖啡廳/公園長椅）；轉乘電車盡量找有電梯的路線（站內找「エレベーター」指標）。</p>
+      </div>
+      <div class="notecard">
+        <h4>🚃 10人團體交通</h4>
+        <p>每人購買一張Suica／PASMO IC卡（機場或車站售票機皆可購買儲值，也可用手機Wallet綁定）；過閘門建議兩兩一組排隊，避免堵住閘口；平日7–9am、5–7pm是通勤尖峰，行程多安排在9:30後出發已避開；建議前後各1人「帶頭」與「壓隊」，用Google地圖共用位置方便走散時集合。</p>
+      </div>
+      <div class="notecard highlight">
+        <h4>🎫 熱門設施務必提前預約</h4>
+        <p>哈利波特影城（Day4）、teamLab Borderless麻布台之丘（Day6）、Shibuya Sky（Day6）皆為指定時段電子票，請於出發前2–4週上官網或KKday／Klook訂好，並將電子票截圖存入手機相簿（以防現場網路不穩）；請抓好預約時段配合行程，避免因排隊、塞車遲到錯過場次。</p>
+      </div>
+      <div class="notecard">
+        <h4>🧳 換飯店與行李</h4>
+        <p>Day3會從橫濱移動到潮見（東京灣），建議退房前先整理好行李；如行李較多，可考慮前一天申請飯店「宅急便」服務直送下一飯店，輕裝移動更輕鬆。</p>
+      </div>
+      <div class="notecard">
+        <h4>🍜 用餐安排</h4>
+        <p>熱門排隊店（勝烈庵、鴨To蔥拉麵、金子半之助等）10人同時用餐可能候位較久，建議分成2桌入座，或先派1–2人排隊登記，其餘人先在附近逛街等通知。</p>
+      </div>
+      <div class="notecard">
+        <h4>💴 現金與支付</h4>
+        <p>便利商店、連鎖餐廳、百貨多可刷卡或行動支付，但部分小吃店、神社香油錢、投幣式設施僅收現金，建議每人準備約5,000–10,000日圓小額現金備用。</p>
+      </div>
+      <div class="notecard highlight">
+        <h4>✨ 獨角獸鋼彈倒數彩蛋</h4>
+        <p>台場1:1實物大獨角獸鋼彈自2017年展示至今，將於2026/8/31正式功成身退，此行程Day5恰好趕上最終展示期（並已換上紀念塗裝），別忘了拍照留念！</p>
+      </div>
+      <div class="notecard">
+        <h4>🌀 颱風／大雨應對</h4>
+        <p>出發前及每日早晨可查看日本氣象廳（jma.go.jp）或Yahoo!天気預報；如遇颱風接近，電車可能延駛或停駛，請留意JR East／各私鐵官方App即時資訊，並參考本手冊〈雨天備案〉章節彈性調整。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 旅遊地圖 ============ -->
+  <section id="map">
+    <h2 class="sec-title">🗺️ 七天路線地圖</h2>
+    <p class="sec-desc">示意圖，標出七天玩過的地方與相對方位（北上南下、東右西左），距離與角度經簡化，不是精確地圖，實際請以Google Maps為準。</p>
+    <div class="map-card">
+      <div class="map-svg-wrap">
+        <svg viewBox="0 0 640 760" role="img" aria-label="東京橫濱七天旅遊路線示意圖">
+          <path class="map-water" d="M450,300 C500,320 540,370 520,420 C560,460 550,520 500,560 C520,610 480,660 430,690 C440,720 400,750 350,745 C300,740 280,700 300,660 C270,630 270,590 320,565 C280,530 290,490 330,470 C310,430 330,390 370,370 C360,340 390,310 450,300 Z" />
+          <text class="map-bay-label" x="440" y="530" text-anchor="middle">東京灣</text>
+
+          <!-- compass -->
+          <g transform="translate(590,40)">
+            <text class="map-sublabel" x="0" y="0" text-anchor="middle" style="font-weight:700;fill:var(--ink-soft);">N</text>
+            <line x1="0" y1="6" x2="0" y2="24" stroke="var(--ink-soft)" stroke-width="1.5" />
+            <path d="M-4,12 L0,6 L4,12" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" />
+          </g>
+
+          <!-- Day4 route -->
+          <line class="map-route day4" x1="230" y1="175" x2="300" y2="220" />
+          <!-- Day5 route -->
+          <line class="map-route day5" x1="345" y1="255" x2="368" y2="295" />
+          <line class="map-route day5" x1="368" y1="295" x2="400" y2="410" />
+          <!-- Day6 Option2 route -->
+          <line class="map-route day6" x1="240" y1="375" x2="270" y2="350" />
+          <line class="map-route day6" x1="270" y1="350" x2="325" y2="390" />
+          <line class="map-route day6" x1="325" y1="390" x2="300" y2="415" />
+
+          <!-- Narita Airport (Day1) -->
+          <g class="map-node map-airport-icon" transform="translate(580,150)">
+            <circle r="11" />
+            <text y="1">✈</text>
+          </g>
+          <text class="map-label" x="596" y="146">成田機場</text>
+          <text class="map-sublabel" x="596" y="160">Day1 抵達</text>
+
+          <!-- Kasukabe (Day6 Option1) -->
+          <g class="map-node" transform="translate(330,50)">
+            <circle class="map-dot day6" r="9" />
+            <text class="map-daynum">6</text>
+          </g>
+          <text class="map-label" x="346" y="46">春日部</text>
+          <text class="map-sublabel" x="346" y="60">Day6・Option1 小新故鄉</text>
+
+          <!-- Toshimaen / Harry Potter (Day4) -->
+          <g class="map-node" transform="translate(230,175)">
+            <circle class="map-dot day4" r="9" />
+            <text class="map-daynum">4</text>
+          </g>
+          <text class="map-label" x="196" y="160" text-anchor="end">豐島園</text>
+          <text class="map-sublabel" x="196" y="174" text-anchor="end">哈利波特影城</text>
+
+          <!-- Tokyo Dome City (Day4) -->
+          <g class="map-node" transform="translate(300,220)">
+            <circle class="map-dot day4" r="9" />
+            <text class="map-daynum">4</text>
+          </g>
+          <text class="map-label" x="316" y="216">東京巨蛋城</text>
+          <text class="map-sublabel" x="316" y="230">後樂園</text>
+
+          <!-- Ueno (Day5) -->
+          <g class="map-node" transform="translate(345,255)">
+            <circle class="map-dot day5" r="9" />
+            <text class="map-daynum">5</text>
+          </g>
+          <text class="map-label" x="361" y="251">上野</text>
+          <text class="map-sublabel" x="361" y="265">恩賜公園・阿美橫町</text>
+
+          <!-- Akihabara / Ningyocho (Day5) -->
+          <g class="map-node" transform="translate(368,295)">
+            <circle class="map-dot day5" r="9" />
+            <text class="map-daynum">5</text>
+          </g>
+          <text class="map-label" x="384" y="291">秋葉原／人形町</text>
+          <text class="map-sublabel" x="384" y="305">午後二選一</text>
+
+          <!-- Tokyo Station / Imperial Palace (Day3) -->
+          <g class="map-node" transform="translate(330,330)">
+            <circle class="map-dot day3" r="9" />
+            <text class="map-daynum">3</text>
+          </g>
+          <text class="map-label" x="308" y="318" text-anchor="end">東京站・皇居</text>
+          <text class="map-sublabel" x="308" y="332" text-anchor="end">丸之內・KITTE</text>
+
+          <!-- Shiomi hotel -->
+          <g class="map-node map-hotel-icon" transform="translate(410,345)">
+            <circle r="11" />
+            <text y="1">🏨</text>
+          </g>
+          <text class="map-label" x="426" y="341">潮見</text>
+          <text class="map-sublabel" x="426" y="355">住宿・Day3-6</text>
+
+          <!-- Shibuya (Day6 Option2) -->
+          <g class="map-node" transform="translate(240,375)">
+            <circle class="map-dot day6" r="9" />
+            <text class="map-daynum">6</text>
+          </g>
+          <text class="map-label" x="222" y="392" text-anchor="end">澀谷</text>
+
+          <!-- Omotesando (Day6 Option2) -->
+          <g class="map-node" transform="translate(270,350)">
+            <circle class="map-dot day6" r="9" />
+            <text class="map-daynum">6</text>
+          </g>
+          <text class="map-label" x="254" y="337" text-anchor="end">表參道</text>
+
+          <!-- Azabudai Hills (Day6 Option2) -->
+          <g class="map-node" transform="translate(325,390)">
+            <circle class="map-dot day6" r="9" />
+            <text class="map-daynum">6</text>
+          </g>
+          <text class="map-label" x="341" y="386">麻布台之丘</text>
+
+          <!-- Roppongi (Day6 Option2) -->
+          <g class="map-node" transform="translate(300,415)">
+            <circle class="map-dot day6" r="9" />
+            <text class="map-daynum">6</text>
+          </g>
+          <text class="map-label" x="284" y="432" text-anchor="end">六本木</text>
+          <text class="map-sublabel" x="284" y="446" text-anchor="end">Day6・Option2 都會之旅</text>
+
+          <!-- Odaiba (Day5) -->
+          <g class="map-node" transform="translate(400,410)">
+            <circle class="map-dot day5" r="9" />
+            <text class="map-daynum">5</text>
+          </g>
+          <text class="map-label" x="416" y="406">台場</text>
+          <text class="map-sublabel" x="416" y="420">獨角獸鋼彈</text>
+
+          <!-- Haneda Airport (Day7) -->
+          <g class="map-node map-airport-icon" transform="translate(375,475)">
+            <circle r="11" style="stroke:var(--day7);" />
+            <text y="1">✈</text>
+          </g>
+          <text class="map-label" x="391" y="471">羽田機場</text>
+          <text class="map-sublabel" x="391" y="485">Day7 返程</text>
+
+          <!-- Yokohama Minato Mirai hotel -->
+          <g class="map-node map-hotel-icon" transform="translate(310,555)">
+            <circle r="11" />
+            <text y="1">🏨</text>
+          </g>
+          <text class="map-label" x="326" y="551">橫濱・港未來</text>
+          <text class="map-sublabel" x="326" y="565">住宿・Day1-2・紅磚倉庫</text>
+
+          <!-- Day1 arrival dinner -->
+          <line class="map-route day1" x1="310" y1="555" x2="270" y2="525" />
+          <g class="map-node" transform="translate(270,525)">
+            <circle class="map-dot day1" r="9" />
+            <text class="map-daynum">1</text>
+          </g>
+          <text class="map-label" x="252" y="512" text-anchor="end">AFURI柚子拉麵</text>
+          <text class="map-sublabel" x="252" y="526" text-anchor="end">Day1 抵達晚餐</text>
+
+          <!-- Hakkeijima (Day2) -->
+          <g class="map-node" transform="translate(350,625)">
+            <circle class="map-dot day2" r="9" />
+            <text class="map-daynum">2</text>
+          </g>
+          <text class="map-label" x="366" y="621">八景島</text>
+          <text class="map-sublabel" x="366" y="635">SEA PARADISE</text>
+        </svg>
+      </div>
+
+      <div class="map-legend">
+        <span class="map-legend-item"><span class="map-legend-swatch" style="background:var(--day1)"></span>Day1 台北→橫濱</span>
+        <span class="map-legend-item"><span class="map-legend-swatch" style="background:var(--day2)"></span>Day2 八景島</span>
+        <span class="map-legend-item"><span class="map-legend-swatch" style="background:var(--day3)"></span>Day3 港未來→東京</span>
+        <span class="map-legend-item"><span class="map-legend-swatch" style="background:var(--day4)"></span>Day4 哈利波特・巨蛋城</span>
+        <span class="map-legend-item"><span class="map-legend-swatch" style="background:var(--day5)"></span>Day5 上野→台場</span>
+        <span class="map-legend-item"><span class="map-legend-swatch" style="background:var(--day6)"></span>Day6 春日部／都會之旅</span>
+        <span class="map-legend-item"><span class="map-legend-swatch" style="background:var(--day7)"></span>Day7 羽田→台北</span>
+        <span class="map-legend-item">🏨 住宿地點</span>
+        <span class="map-legend-item">✈ 機場</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    東京・橫濱 7日慢遊手冊 · 依 2026/8/18–8/24 行程整理 · 各景點開放時間、票務規則以官方公告為準，出發前請再次確認
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var nav = document.querySelector('.navbar');
+    if(!nav) return;
+    function syncNavHeight(){
+      document.documentElement.style.setProperty('--navh', (nav.offsetHeight + 12) + 'px');
+    }
+    syncNavHeight();
+    window.addEventListener('resize', syncNavHeight);
+    window.addEventListener('orientationchange', syncNavHeight);
+  })();
+</script>
+</body>
+</html>
