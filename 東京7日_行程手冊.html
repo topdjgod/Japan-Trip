@@ -198,7 +198,7 @@
     font-size:13px;font-weight:700;color:var(--sun);margin:14px 0 6px;
   }
 
-  /* ---------- horizontally-scrollable table, time column pinned ---------- */
+  /* ---------- horizontally-scrollable table, 景點/地點 column pinned ---------- */
   .tbl-wrap{
     margin-top:8px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
     border:1px solid var(--line);border-radius:10px;
@@ -221,14 +221,14 @@
     font-variant-numeric:tabular-nums;color:var(--ink-soft);white-space:nowrap;font-weight:700;
   }
   table.plan td.name{font-weight:700;}
-  /* pin the time column so it stays visible while the rest scrolls horizontally */
-  table.plan th:first-child, table.plan td:first-child{
+  /* pin the 景點/地點 column so it stays visible while the rest scrolls horizontally */
+  table.plan th:nth-child(2), table.plan td:nth-child(2){
     position:sticky;left:0;z-index:1;box-shadow:2px 0 4px -2px rgba(0,0,0,.15);
   }
-  table.plan th:first-child{background:var(--indigo);z-index:2;}
-  table.plan td:first-child{background:var(--card);}
-  table.plan tbody tr.gem td:first-child{box-shadow: inset 3px 0 0 var(--sun), 2px 0 4px -2px rgba(0,0,0,.15);}
-  table.plan tbody tr.caution td:first-child{box-shadow: inset 3px 0 0 var(--warn), 2px 0 4px -2px rgba(0,0,0,.15);}
+  table.plan th:nth-child(2){background:var(--indigo);z-index:2;}
+  table.plan td:nth-child(2){background:var(--card);}
+  table.plan tbody tr.gem td:nth-child(2){box-shadow: inset 3px 0 0 var(--sun), 2px 0 4px -2px rgba(0,0,0,.15);}
+  table.plan tbody tr.caution td:nth-child(2){box-shadow: inset 3px 0 0 var(--warn), 2px 0 4px -2px rgba(0,0,0,.15);}
   table.plan td .tag{
     display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;
     padding:1px 6px;margin-left:6px;vertical-align:middle;white-space:nowrap;
@@ -325,7 +325,7 @@
       <span class="fact">🏨 東京灣潮見王子 x4晚</span>
       <span class="fact">✈ 回程 CI221 羽田→松山 或 CI101 成田→桃園</span>
     </div>
-    <p class="swipe-hint">👉 每日表格欄位較多，「時間」欄會固定在左側，其餘欄位請左右滑動查看</p>
+    <p class="swipe-hint">👉 每日表格欄位較多，「景點/地點」欄會固定在左側，其餘欄位請左右滑動查看</p>
   </div>
 
   <div class="navbar">
@@ -346,7 +346,7 @@
 
   <!-- ============ 出發前 ============ -->
   <section id="prep">
-    <h2 class="sec-title">出發前必辦 4 件事</h2>
+    <h2 class="sec-title">出發前必辦 5 件事</h2>
     <ul class="checklist">
       <li>
         <b>①</b>
@@ -371,6 +371,12 @@
             <div class="qr-item"><span class="qr-tag">teamLab Borderless 麻布台之丘（Day6 Option2，須預約）</span>成人約3,800円起，最終入場為閉館前1小時；建議訂19:00左右晚間時段配合行程</div>
           </div>
           <p class="qr-note"><b>非強制但建議先線上訂票：</b>八景島 SEA PARADISE（Day2）水族館套票／樂園套票可透過KKday、アソビュー等平台買到折扣票，也能省現場排隊買票的時間，10人團體特別有感；如果雨天備案有機會用到品川 maxell AQUA PARK 水族館，海豚聲光秀熱門場次建議先上官網訂「リザーブプラン」保留席位，現場才不用提早排隊卡位。</p>
+        </div>
+      </li>
+      <li>
+        <b>⑤</b>
+        <div class="li-body">
+          預約Day1出發當天的機場接駁車：10人建議包1台9–13人座接駁車（或分乘2輛車）直達桃園機場T2，務必提前向車行預約好日期、時間與人數／行李量，避免當天現場找車或人數超載；建議約08:15出發前15–30分抵達上車點集合，並和車行確認好上車地點、聯絡電話與司機資訊。
         </div>
       </li>
     </ul>
