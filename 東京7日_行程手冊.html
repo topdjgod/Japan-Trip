@@ -1007,15 +1007,35 @@
             <path d="M-4,12 L0,6 L4,12" fill="none" stroke="var(--ink-soft)" stroke-width="1.5" />
           </g>
 
-          <!-- Day4 route -->
+          <!-- ===== 每日交通路線（依日期上色，虛線示意，實際請以Google Maps為準）===== -->
+          <!-- Day1：成田機場 → 橫濱港未來飯店 → AFURI晚餐 -->
+          <line class="map-route day1" x1="580" y1="150" x2="310" y2="555" />
+          <line class="map-route day1" x1="310" y1="555" x2="270" y2="525" />
+          <!-- Day2：橫濱港未來飯店 ↔ 八景島 -->
+          <line class="map-route day2" x1="310" y1="555" x2="350" y2="625" />
+          <!-- Day3：橫濱港未來飯店 → 潮見飯店（換宿）；潮見 ↔ 東京站・皇居 -->
+          <line class="map-route day3" x1="310" y1="555" x2="410" y2="345" />
+          <line class="map-route day3" x1="410" y1="345" x2="330" y2="330" />
+          <!-- Day4：潮見飯店 → 豐島園 → 東京巨蛋城 → 潮見飯店 -->
+          <line class="map-route day4" x1="410" y1="345" x2="230" y2="175" />
           <line class="map-route day4" x1="230" y1="175" x2="300" y2="220" />
-          <!-- Day5 route -->
+          <line class="map-route day4" x1="300" y1="220" x2="410" y2="345" />
+          <!-- Day5：潮見飯店 → 上野 → 秋葉原/人形町 → 台場 → 潮見飯店 -->
+          <line class="map-route day5" x1="410" y1="345" x2="345" y2="255" />
           <line class="map-route day5" x1="345" y1="255" x2="368" y2="295" />
           <line class="map-route day5" x1="368" y1="295" x2="400" y2="410" />
-          <!-- Day6 Option2 route -->
+          <line class="map-route day5" x1="400" y1="410" x2="410" y2="345" />
+          <!-- Day6 Option1：潮見飯店 ↔ 鎌倉・江之島 -->
+          <line class="map-route day6" x1="410" y1="345" x2="230" y2="700" />
+          <!-- Day6 Option2：潮見飯店 → 澀谷 → 表參道 → 六本木 → 麻布台之丘 → 潮見飯店 -->
+          <line class="map-route day6" x1="410" y1="345" x2="240" y2="375" />
           <line class="map-route day6" x1="240" y1="375" x2="270" y2="350" />
-          <line class="map-route day6" x1="270" y1="350" x2="325" y2="390" />
-          <line class="map-route day6" x1="325" y1="390" x2="300" y2="415" />
+          <line class="map-route day6" x1="270" y1="350" x2="300" y2="415" />
+          <line class="map-route day6" x1="300" y1="415" x2="325" y2="390" />
+          <line class="map-route day6" x1="325" y1="390" x2="410" y2="345" />
+          <!-- Day7：潮見飯店 → 羽田機場（Option A）／潮見飯店 → 成田機場（Option B） -->
+          <line class="map-route day7" x1="410" y1="345" x2="375" y2="475" />
+          <line class="map-route day7" x1="410" y1="345" x2="580" y2="150" />
 
           <!-- Narita Airport (Day1) -->
           <g class="map-node map-airport-icon" transform="translate(580,150)">
@@ -1135,7 +1155,6 @@
           <text class="map-sublabel" x="326" y="565">住宿・Day1-2・紅磚倉庫</text>
 
           <!-- Day1 arrival dinner -->
-          <line class="map-route day1" x1="310" y1="555" x2="270" y2="525" />
           <g class="map-node" transform="translate(270,525)">
             <circle class="map-dot day1" r="9" />
             <text class="map-daynum">1</text>
