@@ -198,7 +198,7 @@
     font-size:13px;font-weight:700;color:var(--sun);margin:14px 0 6px;
   }
 
-  /* ---------- horizontally-scrollable table, 景點/地點 column pinned ---------- */
+  /* ---------- horizontally-scrollable table ---------- */
   .tbl-wrap{
     margin-top:8px;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;
     border:1px solid var(--line);border-radius:10px;
@@ -221,14 +221,8 @@
     font-variant-numeric:tabular-nums;color:var(--ink-soft);white-space:nowrap;font-weight:700;
   }
   table.plan td.name{font-weight:700;}
-  /* pin the 景點/地點 column so it stays visible while the rest scrolls horizontally */
-  table.plan th:nth-child(2), table.plan td:nth-child(2){
-    position:sticky;left:0;z-index:1;box-shadow:2px 0 4px -2px rgba(0,0,0,.15);
-  }
-  table.plan th:nth-child(2){background:var(--indigo);z-index:2;}
-  table.plan td:nth-child(2){background:var(--card);}
-  table.plan tbody tr.gem td:nth-child(2){box-shadow: inset 3px 0 0 var(--sun), 2px 0 4px -2px rgba(0,0,0,.15);}
-  table.plan tbody tr.caution td:nth-child(2){box-shadow: inset 3px 0 0 var(--warn), 2px 0 4px -2px rgba(0,0,0,.15);}
+  table.plan tbody tr.gem td:nth-child(2){box-shadow: inset 3px 0 0 var(--sun);}
+  table.plan tbody tr.caution td:nth-child(2){box-shadow: inset 3px 0 0 var(--warn);}
   table.plan td .tag{
     display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;
     padding:1px 6px;margin-left:6px;vertical-align:middle;white-space:nowrap;
@@ -325,7 +319,7 @@
       <span class="fact">🏨 東京灣潮見王子 x4晚</span>
       <span class="fact">✈ 回程 CI221 羽田→松山 或 CI101 成田→桃園</span>
     </div>
-    <p class="swipe-hint">👉 每日表格欄位較多，「景點/地點」欄會固定在左側，其餘欄位請左右滑動查看</p>
+    <p class="swipe-hint">👉 每日表格欄位較多，請左右滑動查看完整內容</p>
   </div>
 
   <div class="navbar">
